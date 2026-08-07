@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b3d8f">
+  <meta name="description" content="Tra cứu kết quả thi TOEIC - Trung tâm Ngoại ngữ, Đại học Cần Thơ">
+  <title>Tra cứu kết quả thi TOEIC | CFL - CTU</title>
+  <link rel="icon" href="logo-cfl.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-wrap">
+        <img class="brand-logo brand-logo--cfl" src="logo-cfl.jpg" alt="Logo Trung tâm Ngoại ngữ - Đại học Cần Thơ">
+        <div class="brand-copy">
+          <p class="eyebrow">ĐẠI HỌC CẦN THƠ</p>
+          <p class="brand-name">TRUNG TÂM NGOẠI NGỮ</p>
+          <p class="brand-en">CENTER FOR FOREIGN LANGUAGES</p>
+        </div>
+        <div class="brand-divider" aria-hidden="true"></div>
+        <img class="brand-logo brand-logo--35" src="logo-35-years.jpg" alt="Biểu trưng 35 năm Trung tâm Ngoại ngữ">
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__glow hero__glow--one"></div>
+        <div class="hero__glow hero__glow--two"></div>
+        <div class="hero__content">
+          <span class="hero__badge">TOEIC · SCORE LOOKUP</span>
+          <h1>TRA CỨU KẾT QUẢ THI TOEIC</h1>
+          <p class="hero__subtitle">Hệ thống tra cứu kết quả dành cho thí sinh dự thi tại Đại học Cần Thơ.</p>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="lookup-card card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">TRA CỨU CÁ NHÂN</p>
+              <h2>Thông tin thí sinh</h2>
+            </div>
+            <span class="secure-pill" title="Dữ liệu hồ sơ được mã hóa trong gói website">
+              <span class="secure-dot"></span>
+              Dữ liệu mã hóa
+            </span>
+          </div>
+
+          <form id="lookupForm" novalidate>
+            <div class="field-group">
+              <label for="sessionSelect">Đợt thi</label>
+              <div class="select-wrap">
+                <select id="sessionSelect" name="session" aria-describedby="sessionHelp"></select>
+              </div>
+              <small id="sessionHelp">Đợt thi được lấy từ dữ liệu kết quả do Trung tâm cung cấp.</small>
+            </div>
+
+            <div class="field-group">
+              <label for="idInput">Số CCCD / ID Number</label>
+              <div class="input-wrap">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-13Zm4 2.25A2.25 2.25 0 1 0 8 12.25 2.25 2.25 0 0 0 8 7.75Zm5.5.5a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Zm0 3a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3ZM6.25 17.5h3.5c.69 0 1.25-.56 1.25-1.25 0-1.24-1.34-2.25-3-2.25s-3 1.01-3 2.25c0 .69.56 1.25 1.25 1.25Zm7.25-3.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"/></svg>
+                </span>
+                <input id="idInput" name="idNumber" type="text" inputmode="numeric" autocomplete="off" maxlength="20"
+                       placeholder="Nhập số CCCD hoặc ID" aria-describedby="idHelp" required>
+              </div>
+              <small id="idHelp">Nhập đúng số giấy tờ đã đăng ký dự thi. Hệ thống không phân biệt dấu cách hoặc dấu gạch nối.</small>
+            </div>
+
+            <button class="primary-btn" id="lookupButton" type="submit">
+              <span class="btn-label">Tra cứu kết quả</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </button>
+
+            <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+
+      </section>
+
+      <section id="resultSection" class="result-section" hidden>
+        <div class="result-card">
+          <div class="result-topbar">
+            <div>
+              <p class="section-kicker">TOEIC TEST RESULT</p>
+              <h2 id="candidateName">—</h2>
+              <p class="candidate-meta">Ngày thi <strong id="candidateTestDate">—</strong></p>
+            </div>
+            <div class="result-actions">
+              <span class="verified-badge"><span>✓</span> Đã tìm thấy kết quả</span>
+              <button id="printButton" class="secondary-btn" type="button">In kết quả</button>
+            </div>
+          </div>
+
+          <div class="score-grid">
+            <div class="score-box">
+              <span class="score-box__label">LISTENING</span><strong id="scoreListening">—</strong><span class="score-box__max">/ 495</span>
+            </div>
+            <div class="score-box">
+              <span class="score-box__label">READING</span><strong id="scoreReading">—</strong><span class="score-box__max">/ 495</span>
+            </div>
+            <div class="score-box score-box--total">
+              <span class="score-box__label">TOTAL SCORE</span><strong id="scoreTotal">—</strong><span class="score-box__max">/ 990</span>
+            </div>
+          </div>
+
+          <div class="proficiency-panel">
+            <span>Proficiency Levels / Training Levels</span>
+            <strong id="proficiency">—</strong>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>TRUNG TÂM NGOẠI NGỮ · ĐẠI HỌC CẦN THƠ</strong><span>TOEIC Result Lookup</span></div>
+      <p>Vui lòng nhập chính xác thông tin đăng ký dự thi để tra cứu kết quả.</p>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
